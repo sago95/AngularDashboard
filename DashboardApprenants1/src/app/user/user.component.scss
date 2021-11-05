@@ -1,0 +1,57 @@
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+    text-align: center;
+    margin: auto;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid;
+    padding: 8px;
+  }
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  #customers td {
+    background-color: gray;
+    color: white;
+  }
+
+  .t1 {
+    width: 90%;
+      display: flex;
+      margin-top: 20px;
+  }
+
+  .t2 {
+    width: 90%;
+    display: flex;
+    margin-top: 50px;
+}
+
+  .bt {
+      position: absolute;
+      right: 0;
+      margin-right: 5%;
+      height: 5%;
+  }
+
+  h1 {
+      margin-left: 5%;
+  }
+
+  .btn {
+    margin-left: 40%;
+  }
+
+  .d {
+    display: flex;
+    margin: 10px;
+  }

@@ -1,0 +1,16 @@
+<table id="customers">
+    <tr>
+      <th>Date</th>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Heure arrivée</th>
+      <th>Heure depart</th>
+    </tr>
+    <tr *ngFor="let l of list">
+      <td>{{ l.date }}</td>
+      <td>{{ l.nom_apprenant }}</td>
+      <td>{{ l.prenom_apprenant }}</td>
+      <td>{{ l.heure_arrive_apprenant }}</td>
+      <td>{{ l.heure_depart_apprenant }}</td>
+    </tr>
+  </table>
