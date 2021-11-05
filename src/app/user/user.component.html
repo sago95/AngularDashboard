@@ -1,0 +1,95 @@
+<p>Liste des apprenants</p>
+<button (click)="open(content)" class="bt">Ajouter un apprenant</button>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>email</th>
+        <th>telephone</th>
+        <th>Action</th>
+    </tr>
+
+    <tr *ngFor="let us of user">
+        <td>{{us.id}}</td>
+        <td>{{us.nom}}</td>
+        <td>{{us.prenom}}</td>
+        <td>{{us.email}}</td>
+        <td>{{us.telephone}}</td>
+        <td><a href="">Modifier </a> &nbsp; | <a href="">Supprimer</a>
+        </td>
+    </tr>
+</table>
+
+<button (click)="open(content)" class="bt">Ajouter un formateur</button>
+<p>Liste des formateurs</p>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>email</th>
+        <th>telephone</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let l of user1">
+
+        <td>{{ l.id }}</td>
+        <td>{{l.nom}}</td>
+        <td>{{l.prenom}}</td>
+        <td>{{l.email}}</td>
+        <td>{{l.telephone}}</td>
+        <td><a href="">Modifier </a> &nbsp; | <a href="">Supprimer</a>
+        </td>
+    </tr>
+</table>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">New user</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <div class="input-group">
+                    <input name="nom" class="form-control" ngModel>
+                </div>
+                <label for="prenom">Prénom</label>
+                <div class="input-group">
+                    <input name="prenom" class="form-control" ngModel>
+                </div>
+                <label for="email">E-mail</label>
+                <div class="input-group">
+                    <input name="email" class="form-control" ngModel>
+                </div>
+                <label for="password">Mot de passe</label>
+                <div class="input-group">
+                    <input name="password" class="form-control" ngModel>
+                </div>
+                <label for="login">Login</label>
+                <div class="input-group">
+                    <input name="login" class="form-control" ngModel>
+                </div>
+
+                <label for="telephone">Téléphone</label>
+                <div class="input-group">
+                    <input name="telephone" class="form-control" ngModel>
+                </div>
+
+                <label for="genre">Genre</label>
+                <div class="input-group">
+                    <input name="genre" class="form-control" placeholder="H ou F" ngModel>
+                </div>
+                <div class="border text-center">
+                    <button data-dismiss="modal" class="btn btn-info">Ajouter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ajouter</button>
+    </div>
+</ng-template>

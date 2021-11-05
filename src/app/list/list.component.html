@@ -1,0 +1,26 @@
+<label for="site-search" class="sr">afficher un apprenant:</label>
+<input type="search" id="site-search" name="q" aria-label="Search through site content">
+
+<button>Search</button>
+
+
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Date</th>
+        <th>Heure d'Arriver</th>
+        <th>Heure de depart</th>
+
+    </tr>
+    <tr *ngFor="let l of user">
+        <td>{{l.id}}</td>
+        <td>{{l.nom_apprenant}}</td>
+        <td>{{l.prenom_apprenant}}</td>
+        <td>{{l.date}}</td>
+        <td>{{l.heure_arrive_apprenant}}</td>
+        <td>{{l.heure_depart_apprenant}}</td>
+    </tr>
+</table>
