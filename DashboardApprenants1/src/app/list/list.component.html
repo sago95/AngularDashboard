@@ -1,3 +1,5 @@
+<input type="text" class="form-control" [(ngModel)]="filteredString">
+      
 <table id="customers">
     <tr>
       <th>Date</th>
@@ -6,7 +8,7 @@
       <th>Heure arrivée</th>
       <th>Heure depart</th>
     </tr>
-    <tr *ngFor="let l of list">
+    <tr *ngFor="let l of list | filter:filteredString">
       <td>{{ l.date }}</td>
       <td>{{ l.nom_apprenant }}</td>
       <td>{{ l.prenom_apprenant }}</td>

@@ -4,11 +4,13 @@
     width: 95%;
     text-align: center;
     margin: auto;
+    font-family: Verdana;
   }
   
   #customers td, #customers th {
     border: 1px solid;
     padding: 8px;
+    font-family: Verdana;
   }
   
   #customers th {
@@ -17,41 +19,50 @@
     text-align: left;
     background-color: #04AA6D;
     color: white;
+    font-family: Verdana;
   }
 
   #customers td {
     background-color: gray;
     color: white;
+    font-family: Verdana;
   }
 
   .t1 {
-    width: 90%;
-      display: flex;
-      margin-top: 20px;
+    margin: 10px;
+    font-family: Verdana;
   }
-
-  .t2 {
-    width: 90%;
-    display: flex;
-    margin-top: 50px;
-}
 
   .bt {
       position: absolute;
       right: 0;
       margin-right: 5%;
       height: 5%;
+      font-family: Verdana;
   }
 
   h1 {
-      margin-left: 5%;
+      padding-top: 10px;
+      margin-left: 3%;
+      margin-bottom: 5px;
+      font-family: Verdana;
   }
 
-  .btn {
-    margin-left: 40%;
+  h3 {
+    padding-top: 10px;
+      margin-left: 3%;
+      margin-top: 10px;
+      font-family: Verdana;
   }
 
   .d {
     display: flex;
     margin: 10px;
+    font-family: Verdana;
+  }
+
+  .p {
+    display: flex;
+    margin: 20px;
+    margin-top: 20px;
   }

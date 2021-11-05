@@ -79,10 +79,12 @@ export class UserComponent implements OnInit {
     this.Apprenant = apprenant;
   }
 
-  updateApprenants(){
+  updateApprenants(updateForm: NgForm){
     this.app.updateApprenant(this.Apprenant).subscribe(
       (resp) => {
         console.log(resp);
+        updateForm.reset();
+        this.getAppDetails();
       },
       (err) => {
         console.log(err);
@@ -102,11 +104,11 @@ export class UserComponent implements OnInit {
     );
   }
 
-  registerf(registerForm: NgForm) {
-    this.app.registerFormateur(registerForm.value).subscribe(
+  registerf(registerFor: NgForm) {
+    this.app.registerFormateur(registerFor.value).subscribe(
       (resp) => {
         console.log(resp);
-        registerForm.reset();
+        registerFor.reset();
         this.getForDetails();
       },
       (err) => {
@@ -131,10 +133,12 @@ export class UserComponent implements OnInit {
     this.Formateur = formateur;
   }
 
-  updateFormateurs(){
+  updateFormateurs(updateFor: NgForm){
     this.app.updateFormateur(this.Formateur).subscribe(
       (resp) => {
         console.log(resp);
+        updateFor.reset();
+        this.getForDetails();
       },
       (err) => {
         console.log(err);

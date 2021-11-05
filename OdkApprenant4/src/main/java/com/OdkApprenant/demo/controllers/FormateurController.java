@@ -53,7 +53,7 @@ public class FormateurController {
 			service.delete(id);
 		}
 	 
-	 @PutMapping("/formateur")
+	 @PutMapping("/formateurs")
 		public Formateur updateFormateur(@RequestBody Formateur formateur) {
 		 return service.updateFormateur(formateur);
 	    }

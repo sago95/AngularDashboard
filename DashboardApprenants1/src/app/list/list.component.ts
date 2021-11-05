@@ -10,6 +10,7 @@ export class ListComponent implements OnInit {
 
   listApiUrl = '';
   list:any;
+  filteredString: string = '';
 
 
   constructor(private http: HttpClient) { 
