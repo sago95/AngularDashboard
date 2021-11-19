@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.OdkApprenant.demo.model.Apprenant;
@@ -63,4 +63,11 @@ public class ApprenantController {
 	 	public Optional<Apprenant> loginUser(@PathVariable("login") String login, @PathVariable("password") String password){
 		 return service.loginUser(login, password);
 	 }
+	 
+	 @GetMapping("/apprenant/{id}")
+	    public @ResponseBody  ResponseEntity<?> apprenantByid(@RequestBody @PathVariable(name = "id") Integer id){
+	        return new ResponseEntity<>(service.findById(id), HttpStatus.OK);
+	    }
+	 
+	 
 }

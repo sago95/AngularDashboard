@@ -41,4 +41,12 @@ export class Service {
   public updateFormateur(formateur: any) {
     return this.http.put(this.API + '/formateurs', formateur);
   }
+
+  public dateInterval(dateDebut:any,dateFin:any){
+    return this.http.get(this.API+"/entre/"+dateDebut+"&"+dateFin)
+  }
+
+  public ListOne(nid:any){
+    return this.http.get(this.API+"/find/nid="+nid)
+  }
 }

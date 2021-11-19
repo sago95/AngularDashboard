@@ -1,4 +1,4 @@
-<input type="text" class="form-control" [(ngModel)]="filteredString">
+<button (click)="getAll()">Liste globale</button>
       
 <table id="customers">
     <tr>
@@ -8,11 +8,55 @@
       <th>Heure arrivée</th>
       <th>Heure depart</th>
     </tr>
-    <tr *ngFor="let l of list | filter:filteredString">
+    <tr *ngFor="let l of list">
       <td>{{ l.date }}</td>
-      <td>{{ l.nom_apprenant }}</td>
-      <td>{{ l.prenom_apprenant }}</td>
+      <td>{{ l.nom }}</td>
+      <td>{{ l.prenom }}</td>
       <td>{{ l.heure_arrive_apprenant }}</td>
       <td>{{ l.heure_depart_apprenant }}</td>
     </tr>
   </table>
+
+<div class="col-md-6">
+  <h1>Choisir une interval de date</h1>
+  <form #f="ngForm" (ngSubmit)="intervalData(f.value)">
+      <div class="mb-3">
+          <label class="form-label">Date debut</label>
+          <input type="date" class="form-control" ngModel name="dateDebut" >
+        </div>
+      <div class="mb-3">
+        <label  class="form-label">Date fin</label>
+        <input type="date" class="form-control" ngModel name="dateFin" >
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>
+
+<table id="customers">
+  <tr>
+    <th>Date</th>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Heure arrivée</th>
+    <th>Heure depart</th>
+  </tr>
+  <tr *ngFor="let e of entre">
+    <td>{{ e.date }}</td>
+    <td>{{ e.nom }}</td>
+    <td>{{ e.prenom }}</td>
+    <td>{{ e.heure_arrive_apprenant }}</td>
+    <td>{{ e.heure_depart_apprenant }}</td>
+  </tr>
+</table>
+
+<div class="col-md-6">
+  <h1>Choisir une interval de date</h1>
+  <form #f="ngForm" (ngSubmit)="getOne(f.value)">
+      <div class="mb-3">
+          <label class="form-label">Date debut</label>
+          <input type="text" class="form-control" ngModel name="nid" >
+        </div>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>
+

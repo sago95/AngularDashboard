@@ -21,5 +21,7 @@ public interface ApprenantService {
 	 Optional<Apprenant> loginUser(String login, String password);
 
 	Apprenant updateApprenant(Apprenant apprenant);
+	
+	Optional<Apprenant> findById(Integer id);
 
 }

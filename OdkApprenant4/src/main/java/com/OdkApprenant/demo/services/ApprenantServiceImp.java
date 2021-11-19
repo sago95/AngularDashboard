@@ -52,8 +52,10 @@ public class ApprenantServiceImp implements ApprenantService {
 		
 		return repository.getUserByLoginAndPassword(login, password);
 	}
-
 	
-	
+	public Optional<Apprenant> findById(Integer id){
+		
+		return repository.findById(id);
+	}
 
 }

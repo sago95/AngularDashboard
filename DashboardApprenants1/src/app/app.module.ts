@@ -15,7 +15,6 @@ import { UserComponent } from './user/user.component';
 import { ListComponent } from './list/list.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { FilterPipe } from './Pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { FilterPipe } from './Pipes/filter.pipe';
     HomeComponent,
     UserComponent,
     ListComponent,
-    FilterPipe,
   ],
   imports: [
     BrowserModule,

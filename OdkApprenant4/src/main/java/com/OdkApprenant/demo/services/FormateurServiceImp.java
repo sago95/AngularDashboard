@@ -1,11 +1,12 @@
 package com.OdkApprenant.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.OdkApprenant.demo.model.Apprenant;
+
 import com.OdkApprenant.demo.model.Formateur;
 import com.OdkApprenant.demo.repositories.FormateurRepository;
 
@@ -41,5 +42,9 @@ public class FormateurServiceImp implements FormateurService {
 		app.setPassword(formateur.getPassword());
 		app.setGenre(formateur.getGenre());
 		return repository.save(app);
+	}
+	
+	public Optional<Formateur> loginUser(String login, String password) {
+		return repository.getUserByLoginAndPassword(login, password);
 	}
 }

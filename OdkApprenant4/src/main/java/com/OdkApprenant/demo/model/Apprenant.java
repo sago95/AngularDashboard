@@ -1,5 +1,6 @@
 package com.OdkApprenant.demo.model;
 
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 
 
 @Entity
@@ -46,8 +48,11 @@ public class Apprenant {
 	
 	
 
-	public Apprenant(Integer id, String nom, String prenom, Integer age,  Integer telephone, String email, String login,
-			String password, String genre, ApprenantStatus apprenantStatus, Date dateCreation, Date dateModification) {
+	
+	public Apprenant(Integer id, String nom, String prenom, Integer age, Integer telephone, String email, String login,
+			String password, String genre, ApprenantStatus apprenantStatus, Date dateCreation, Date dateModification
+			) {
+		
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -61,7 +66,7 @@ public class Apprenant {
 		this.dateCreation = dateCreation;
 		this.dateModification = dateModification;
 	}
-	
+
 	public Apprenant () {}
 
 	public Integer getId() {

@@ -1,6 +1,7 @@
 package com.OdkApprenant.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -19,5 +20,7 @@ public interface FormateurService {
 	void save(Formateur liste_formateurs);
 
 	Formateur updateFormateur(Formateur formateur);
+	
+	Optional<Formateur> loginUser(String login, String password);
 
 }
