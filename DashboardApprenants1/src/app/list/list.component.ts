@@ -13,6 +13,8 @@ export class ListComponent implements OnInit {
   list:any;
   entre:any;
   one:any;
+  dat:any;
+  wee:any;
 
   constructor(private http: HttpClient, private service: Service) { 
   }
@@ -37,9 +39,23 @@ export class ListComponent implements OnInit {
     })
   }
 
-  getOne(data:any) {
-    this.service.ListOne(data.nid).subscribe((data:any)=>{
+  getOne(dat:any) {
+    this.service.ListOne(dat.ide).subscribe((data:any)=>{
       this.one = data;
+      console.log(data);
+    })
+  }
+
+  getDate(date:any) {
+    this.service.ListDate(date.mois).subscribe((data:any)=>{
+      this.dat = data;
+      console.log(data);
+    })
+  }
+
+  getWeek(date:any) {
+    this.service.ListWeek(date.semaine).subscribe((data:any)=>{
+      this.wee = data;
       console.log(data);
     })
   }

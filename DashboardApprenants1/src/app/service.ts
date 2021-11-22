@@ -46,7 +46,15 @@ export class Service {
     return this.http.get(this.API+"/entre/"+dateDebut+"&"+dateFin)
   }
 
-  public ListOne(nid:any){
-    return this.http.get(this.API+"/find/nid="+nid)
+  public ListOne(ide:any){
+    return this.http.get(this.API+"/find/nid="+ide)
+  }
+
+  public ListDate(mois:any){
+    return this.http.get(this.API+"/find/date="+mois)
+  }
+
+  public ListWeek(semaine:any) {
+    return this.http.get(this.API+"/find/week="+semaine)
   }
 }
