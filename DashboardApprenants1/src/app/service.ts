@@ -50,11 +50,15 @@ export class Service {
     return this.http.get(this.API+"/find/nid="+ide)
   }
 
-  public ListDate(mois:any){
-    return this.http.get(this.API+"/find/date="+mois)
+  public ListDate(jour:any){
+    return this.http.get(this.API+"/find/date="+jour)
   }
 
   public ListWeek(semaine:any) {
     return this.http.get(this.API+"/find/week="+semaine)
+  }
+
+  public ListMois(mois:any) {
+    return this.http.get(this.API+"/find/month="+mois)
   }
 }

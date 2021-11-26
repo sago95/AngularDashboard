@@ -1,136 +1,194 @@
-<button (click)="getAll()">Liste globale</button>
-      
-<table id="customers">
-    <tr>
-      <th>Date</th>
-      <th>Nom</th>
-      <th>Prénom</th>
-      <th>Heure arrivée</th>
-      <th>Heure depart</th>
-    </tr>
-    <tr *ngFor="let l of list">
-      <td>{{ l.date }}</td>
-      <td>{{ l.nom }}</td>
-      <td>{{ l.prenom }}</td>
-      <td>{{ l.heure_arrive_apprenant }}</td>
-      <td>{{ l.heure_depart_apprenant }}</td>
-    </tr>
-  </table>
+<mat-tab-group>
 
-<div class="col-md-6">
-  <h1>Liste par intervale</h1>
-  <form #d="ngForm" (ngSubmit)="intervalData(d.value)">
-      <div class="mb-3">
-          <label class="form-label">Début</label>
-          <input type="date" class="form-control" ngModel name="dateDebut" >
-        </div>
-      <div class="mb-3">
-        <label  class="form-label">Fin</label>
-        <input type="date" class="form-control" ngModel name="dateFin" >
+  <!-- Début de la liste globale -->
+  <mat-tab label="Liste globale"> 
+    <table id="customers">
+        <tr>
+          <th>Date</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Heure arrivée</th>
+          <th>Heure depart</th>
+        </tr>
+        <tr *ngFor="let l of list">
+          <td>{{ l.date }}</td>
+          <td>{{ l.nom }}</td>
+          <td>{{ l.prenom }}</td>
+          <td>{{ l.heure_arrive_apprenant }}</td>
+          <td>{{ l.heure_depart_apprenant }}</td>
+        </tr>
+      </table>
+  </mat-tab>
+  <!-- Fin de liste globale -->
+
+  <!-- Début de la liste par apprenant -->
+  <mat-tab label="Liste par apprenant">
+    <div class="col-md-6">
+      <form #f="ngForm" (ngSubmit)="getOne(f.value)">
+          <div class="divapp">
+              <h2>L'identifiant de l'apprenant: </h2>
+              <input type="text" class="ipapp" ngModel name="ide" placeholder="ex: app1 ou app2">
+              <button type="submit" class="btapp">Rechercher</button>
+            </div>
+        </form>
+    </div>
+    
+    <table id="customers">
+      <tr>
+        <th>Date</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Heure arrivée</th>
+        <th>Heure depart</th>
+      </tr>
+      <tr *ngFor="let o of one">
+        <td>{{ o.date }}</td>
+        <td>{{ o.nom }}</td>
+        <td>{{ o.prenom }}</td>
+        <td>{{ o.heure_arrive_apprenant }}</td>
+        <td>{{ o.heure_depart_apprenant }}</td>
+      </tr>
+    </table>
+  </mat-tab>
+  <!-- Fin de la liste par apprenant -->
+
+  <!-- Début de la liste par jour -->
+  <mat-tab label=" Liste par jour">
+    <div class="col-md-6">
+      <form #e="ngForm" (ngSubmit)="getDay(e.value)">
+          <div class="mb-3">
+              <label class="form-label">Sélectionnez un jour:</label>
+              <input type="date" class="form-control" ngModel name="mois" >
+            </div>
+          <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+    </div>
+    
+    <table id="customers">
+      <tr>
+        <th>Date</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Heure arrivée</th>
+        <th>Heure depart</th>
+      </tr>
+      <tr *ngFor="let j of jours">
+        <td>{{ j.date }}</td>
+        <td>{{ j.nom }}</td>
+        <td>{{ j.prenom }}</td>
+        <td>{{ j.heure_arrive_apprenant }}</td>
+        <td>{{ j.heure_depart_apprenant }}</td>
+      </tr>
+    </table>
+  </mat-tab>
+  <!-- Fin de la liste par jour -->
+    
+  <!-- Début de la liste par mois -->
+  <mat-tab label=" Liste par mois">
+      <div class="col-md-6">
+        <h1>liste par semaine</h1>
+        <form #m="ngForm" (ngSubmit)="getMois(m.value)">
+            <div class="mb-3">
+                <label class="form-label">Mois</label>
+                <input type="text" class="form-control" placeholder="yyyy-mm" ngModel name="mois">
+              
+              </div>
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+          </form>
       </div>
-      <button type="submit" class="btn btn-primary">Recherche</button>
-    </form>
-</div>
+      
+      <table id="customers">
+        <tr>
+          <th>Date</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Heure arrivée</th>
+          <th>Heure depart</th>
+        </tr>
+        <tr *ngFor="let m of moi">
+          <td>{{ m.date }}</td>
+          <td>{{ m.nom }}</td>
+          <td>{{ m.prenom }}</td>
+          <td>{{ m.heure_arrive_apprenant }}</td>
+          <td>{{ m.heure_depart_apprenant }}</td>
+        </tr>
+      </table>
+  </mat-tab>
 
-<table id="customers">
-  <tr>
-    <th>Date</th>
-    <th>Nom</th>
-    <th>Prénom</th>
-    <th>Heure arrivée</th>
-    <th>Heure depart</th>
-  </tr>
-  <tr *ngFor="let e of entre">
-    <td>{{ e.date }}</td>
-    <td>{{ e.nom }}</td>
-    <td>{{ e.prenom }}</td>
-    <td>{{ e.heure_arrive_apprenant }}</td>
-    <td>{{ e.heure_depart_apprenant }}</td>
-  </tr>
-</table>
+  <!-- Début de la liste par semaine -->
+  <mat-tab label="Liste par semaine">
+    <div class="col-md-6">
+      <h1>liste par semaine</h1>
+      <form #w="ngForm" (ngSubmit)="getWeek(w.value)">
+          <div class="mb-3">
+              <label class="form-label">Semaine</label>
+              <input type="date" class="form-control" ngModel name="semaine">
+            
+            </div>
+          <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+    </div>
+    
+    <table id="customers">
+      <tr>
+        <th>Date</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Heure arrivée</th>
+        <th>Heure depart</th>
+      </tr>
+      <tr *ngFor="let w of wee">
+        <td>{{ w.date }}</td>
+        <td>{{ w.nom }}</td>
+        <td>{{ w.prenom }}</td>
+        <td>{{ w.heure_arrive_apprenant }}</td>
+        <td>{{ w.heure_depart_apprenant }}</td>
+      </tr>
+    </table>
+  </mat-tab>
+  <!-- Fin de la liste par semaine -->
 
-<div class="col-md-6">
-  <h1>Liste par apprenant</h1>
-  <form #f="ngForm" (ngSubmit)="getOne(f.value)">
-      <div class="mb-3">
-          <label class="form-label">L'identifiant de l'apprenant</label>
-          <input type="text" class="form-control" ngModel name="ide" placeholder="ex: app1 ou app2">
-        </div>
-      <button type="submit" class="btn btn-primary">Rechercher</button>
-    </form>
-</div>
+  <!-- Début de la liste par intervale -->
+  <mat-tab label=" Liste par intervale">
+    <div class="col-md-6">
+      <h1>Liste par intervale</h1>
+      <form #d="ngForm" (ngSubmit)="intervalData(d.value)">
+          <div class="mb-3">
+              <label class="form-label">Début</label>
+              <input type="date" class="form-control" ngModel name="dateDebut" >
+            </div>
+          <div class="mb-3">
+            <label  class="form-label">Fin</label>
+            <input type="date" class="form-control" ngModel name="dateFin" >
+          </div>
+          <button type="submit" class="btn btn-primary">Recherche</button>
+        </form>
+    </div>
+    
+    <table id="customers">
+      <tr>
+        <th>Date</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Heure arrivée</th>
+        <th>Heure depart</th>
+      </tr>
+      <tr *ngFor="let e of entre">
+        <td>{{ e.date }}</td>
+        <td>{{ e.nom }}</td>
+        <td>{{ e.prenom }}</td>
+        <td>{{ e.heure_arrive_apprenant }}</td>
+        <td>{{ e.heure_depart_apprenant }}</td>
+      </tr>
+    </table>
+  </mat-tab>
+  </mat-tab-group>
 
-<table id="customers">
-  <tr>
-    <th>Date</th>
-    <th>Nom</th>
-    <th>Prénom</th>
-    <th>Heure arrivée</th>
-    <th>Heure depart</th>
-  </tr>
-  <tr *ngFor="let o of one">
-    <td>{{ o.date }}</td>
-    <td>{{ o.nom }}</td>
-    <td>{{ o.prenom }}</td>
-    <td>{{ o.heure_arrive_apprenant }}</td>
-    <td>{{ o.heure_depart_apprenant }}</td>
-  </tr>
-</table>
 
-<div class="col-md-6">
-  <h1>Liste par mois</h1>
-  <form #e="ngForm" (ngSubmit)="getDate(e.value)">
-      <div class="mb-3">
-          <label class="form-label">Mois</label>
-          <input type="date" class="form-control" ngModel name="mois" >
-        </div>
-      <button type="submit" class="btn btn-primary">Rechercher</button>
-    </form>
-</div>
 
-<table id="customers">
-  <tr>
-    <th>Date</th>
-    <th>Nom</th>
-    <th>Prénom</th>
-    <th>Heure arrivée</th>
-    <th>Heure depart</th>
-  </tr>
-  <tr *ngFor="let d of dat">
-    <td>{{ d.date }}</td>
-    <td>{{ d.nom }}</td>
-    <td>{{ d.prenom }}</td>
-    <td>{{ d.heure_arrive_apprenant }}</td>
-    <td>{{ d.heure_depart_apprenant }}</td>
-  </tr>
-</table>
 
-<div class="col-md-6">
-  <h1>liste par semaine</h1>
-  <form #w="ngForm" (ngSubmit)="getWeek(w.value)">
-      <div class="mb-3">
-          <label class="form-label">Semaine</label>
-          <input type="date" class="form-control" ngModel name="semaine">
-        
-        </div>
-      <button type="submit" class="btn btn-primary">Rechercher</button>
-    </form>
-</div>
 
-<table id="customers">
-  <tr>
-    <th>Date</th>
-    <th>Nom</th>
-    <th>Prénom</th>
-    <th>Heure arrivée</th>
-    <th>Heure depart</th>
-  </tr>
-  <tr *ngFor="let w of wee">
-    <td>{{ w.date }}</td>
-    <td>{{ w.nom }}</td>
-    <td>{{ w.prenom }}</td>
-    <td>{{ w.heure_arrive_apprenant }}</td>
-    <td>{{ w.heure_depart_apprenant }}</td>
-  </tr>
-</table>
+
+
+
 

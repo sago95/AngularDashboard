@@ -15,6 +15,7 @@ import { UserComponent } from './user/user.component';
 import { ListComponent } from './list/list.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatListModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatTabsModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
