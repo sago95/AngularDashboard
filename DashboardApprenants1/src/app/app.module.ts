@@ -16,6 +16,7 @@ import { ListComponent } from './list/list.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     HomeComponent,
     UserComponent,
     ListComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
