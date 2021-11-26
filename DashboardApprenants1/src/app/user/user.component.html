@@ -16,7 +16,7 @@
       <td>{{ apprenant.prenom }}</td>
       <td>{{ apprenant.email }}</td>
       <td>{{ apprenant.telephone }}</td>
-      <td><button type="button" data-toggle="modal" data-target="#exampleModal" (click)="edit(apprenant)">Modifier</button> &nbsp; | &nbsp; <button type="button" (click)="deleteApprenant(apprenant)">Supprimer</button></td>
+      <td><button type="button" data-toggle="modal" data-target="#exampleModal" (click)="edit(apprenant)"><mat-icon style="color: blue;">edit</mat-icon></button> &nbsp; | &nbsp; <button type="button" (click)="deleteApprenant(apprenant)"><mat-icon style="color: red;">delete</mat-icon></button></td>
     </tr>
   </table>
   </div>

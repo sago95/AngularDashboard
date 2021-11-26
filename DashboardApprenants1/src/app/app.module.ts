@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AdminComponent } from './admin/admin.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

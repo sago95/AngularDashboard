@@ -4,10 +4,11 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
+    <mat-divider></mat-divider>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['/user']">Gestion des Apprenants</a>
-      <a mat-list-item [routerLink]="['/admin']">Gestion des Formateurs</a>
-      <a mat-list-item [routerLink]="['/list']">Gestion des listes de présence</a>
+      <a mat-list-item [routerLink]="['/user']" routerLinkActive="link_active"><mat-icon>school</mat-icon>&nbsp; Gestion des Apprenants</a>
+      <a mat-list-item [routerLink]="['/admin']" routerLinkActive="link_active"><mat-icon>group</mat-icon>&nbsp; Gestion des Formateurs</a>
+      <a mat-list-item [routerLink]="['/list']" routerLinkActive="link_active"><mat-icon>list_alt</mat-icon>&nbsp; Listes de présence</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
