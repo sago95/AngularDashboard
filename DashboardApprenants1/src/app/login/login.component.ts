@@ -1,18 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Service } from './service';
+import { Service } from '../service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class AppComponent {
-  title = 'DashboardApprenants1';
+export class LoginComponent implements OnInit {
 
-  constructor(private service: Service, private route: Router){
-
-  }
+  constructor(private service: Service, private route: Router) { }
 
   logForm(form: { login: string; password: string; }){
     this.service.verification(form.login, form.password)
@@ -28,4 +25,8 @@ export class AppComponent {
       )
 
   }
+
+  ngOnInit(): void {
+  }
+
 }

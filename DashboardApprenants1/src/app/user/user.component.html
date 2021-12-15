@@ -1,81 +1,82 @@
-<mat-tab-group>
-  <mat-tab label="First">
-    <div class="t1">
-      <h1>Liste des Apprenants</h1>
-  
-  <table id="customers">
-    <tr>
-      <th>Nom</th>
-      <th>Prénom</th>
-      <th>E-mail</th>
-      <th>Téléphone</th>
-      <th>Actions</th>
-    </tr>
-    <tr *ngFor="let apprenant of apprenantDetails">
-      <td>{{ apprenant.nom }}</td>
-      <td>{{ apprenant.prenom }}</td>
-      <td>{{ apprenant.email }}</td>
-      <td>{{ apprenant.telephone }}</td>
-      <td><button type="button" data-toggle="modal" data-target="#exampleModal" (click)="edit(apprenant)"><mat-icon style="color: blue;">edit</mat-icon></button> &nbsp; | &nbsp; <button type="button" (click)="deleteApprenant(apprenant)"><mat-icon style="color: red;">delete</mat-icon></button></td>
-    </tr>
-  </table>
-  </div>
-  <div>
-    <fieldset>
-      <legend>Modifier un apprenant</legend>
-    <form #updateForm="ngForm" (ngSubmit)="updateApprenants(updateForm)">
-      <div class="d">
-        <input type="text" #nom [(ngModel)]="Apprenant.nom" name="nom" id="nom" class="form-control" placeholder="Nom">&nbsp;&nbsp;
-        <input type="text" #prenom [(ngModel)]="Apprenant.prenom" name="prenom" id="name" class="form-control" placeholder="prenom">&nbsp;&nbsp;
-      </div>
-      <div class="d">
-        <input type="email" #email [(ngModel)]="Apprenant.email" name="email" id="email" class="form-control" placeholder="E-mail">&nbsp;&nbsp;
-        <input type="telephone" #telephone [(ngModel)]="Apprenant.telephone" name="telephone" id="telephone" class="form-control" placeholder="Téléphone">&nbsp;&nbsp;
-      </div>
-      <div class="d">
-        <input type="number" #age [(ngModel)]="Apprenant.age" name="age" id="age" class="form-control" placeholder="Age">&nbsp;&nbsp;
-        <input type="text" #apprenant_status [(ngModel)]="Apprenant.apprenant_status" name="apprenant_status" id="apprenant_status" class="form-control" placeholder="Status">&nbsp;&nbsp;
-      </div>
-      <div class="d">
-        <input type="text" #login [(ngModel)]="Apprenant.login" name="login" id="login" class="form-control" placeholder="Login">&nbsp;&nbsp;
-        <input type="telephone" #telephone [(ngModel)]="Apprenant.telephone" name="telephone" id="telephone" class="form-control" placeholder="Téléphone">&nbsp;&nbsp;
-      </div>
-      <div class="form-group">
-        <input type="submit" value="Modifier" class="btn btn-primary w-100">
-      </div>
-    </form>
-    </fieldset>
-  </div>
-  </mat-tab>
-  <mat-tab label="Second">
-    <div class="p">
-      <div>
-        <fieldset>
-          <legend>Ajouter un apprenant</legend>
-          <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
-            <div class="d">
-              <input type="text" #nom (ngModel)="nom" name="nom" id="nom" class="form-control" placeholder="Nom">&nbsp;&nbsp;
-              <input type="text" #prenom (ngModel)="prenom" name="prenom" id="prenom" class="form-control" placeholder="Prénom">&nbsp;&nbsp;
-            </div>
-            <div class="d">
-              <input type="email" #email (ngModel)="email" name="email" id="email" class="form-control" placeholder="E-mail">&nbsp;&nbsp;
-              <input type="tel" #telephone (ngModel)="telephone" name="telephone" id="telephone" class="form-control" placeholder="Téléphone">
-            </div>
-            <div class="d">
-              <input type="number" #age (ngModel)="age" name="age" id="age" class="form-control" placeholder="Age">&nbsp;&nbsp;
-              <input type="apprenant_status" #apprenant_status (ngModel)="apprenant_status" name="apprenant_status" id="apprenant_status" class="form-control" placeholder="Status">&nbsp;&nbsp;
-            </div>
-            <div class="d">
-              <input type="text" #login (ngModel)="login" name="login" id="login" class="form-control" placeholder="Login">&nbsp;&nbsp;
-              <input type="password" #password (ngModel)="password" name="password" id="password" class="form-control" placeholder="Mot de passe">
-            </div>
-            <div class="form-group">
-              <input type="submit" value="Ajouter" class="aj">
-            </div>
-          </form>
-        </fieldset>
+<app-home>
+  <mat-tab-group>
+    <mat-tab label="Liste des apprenants">
+      <div class="t1">
+        <h1>Liste des Apprenants</h1>
+    
+    <table id="customers">
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>E-mail</th>
+        <th>Téléphone</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let apprenant of apprenantDetails">
+        <td>{{ apprenant.nom }}</td>
+        <td>{{ apprenant.prenom }}</td>
+        <td>{{ apprenant.email }}</td>
+        <td>{{ apprenant.telephone }}</td>
+        <td><button type="button" data-toggle="modal" data-target="#exampleModal" (click)="edit(apprenant)"><mat-icon style="color: blue;">edit</mat-icon></button> &nbsp; | &nbsp; <button type="button" (click)="deleteApprenant(apprenant)"><mat-icon style="color: red;">delete</mat-icon></button></td>
+      </tr>
+    </table>
+    </div>
+    <div>
+      <fieldset>
+        <legend>Modifier un apprenant</legend>
+      <form #updateForm="ngForm" (ngSubmit)="updateApprenants(updateForm)">
+        <div class="d">
+          <input type="text" #nom [(ngModel)]="Apprenant.nom" name="nom" id="nom" class="form-control" placeholder="Nom">&nbsp;&nbsp;
+          <input type="text" #prenom [(ngModel)]="Apprenant.prenom" name="prenom" id="name" class="form-control" placeholder="prenom">&nbsp;&nbsp;
         </div>
-        
-      </div>
-  </mat-tab>
-</mat-tab-group>
+        <div class="d">
+          <input type="email" #email [(ngModel)]="Apprenant.email" name="email" id="email" class="form-control" placeholder="E-mail">&nbsp;&nbsp;
+          <input type="telephone" #telephone [(ngModel)]="Apprenant.telephone" name="telephone" id="telephone" class="form-control" placeholder="Téléphone">&nbsp;&nbsp;
+        </div>
+        <div class="d">
+          <input type="number" #age [(ngModel)]="Apprenant.age" name="age" id="age" class="form-control" placeholder="Age">&nbsp;&nbsp;
+          <input type="text" #apprenant_status [(ngModel)]="Apprenant.apprenant_status" name="apprenant_status" id="apprenant_status" class="form-control" placeholder="Status">&nbsp;&nbsp;
+        </div>
+        <div class="d">
+          <input type="text" #login [(ngModel)]="Apprenant.login" name="login" id="login" class="form-control" placeholder="Login">&nbsp;&nbsp;
+          <input type="telephone" #telephone [(ngModel)]="Apprenant.telephone" name="telephone" id="telephone" class="form-control" placeholder="Téléphone">&nbsp;&nbsp;
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Modifier" class="btn btn-primary w-100">
+        </div>
+      </form>
+      </fieldset>
+    </div>
+    </mat-tab>
+    <mat-tab label="Ajouter un apprenant">
+      <div class="p">
+        <div>
+          <fieldset>
+            <legend>Ajouter un apprenant</legend>
+            <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+              <div class="d">
+                <input type="text" #nom (ngModel)="nom" name="nom" id="nom" class="form-control" placeholder="Nom">&nbsp;&nbsp;
+                <input type="text" #prenom (ngModel)="prenom" name="prenom" id="prenom" class="form-control" placeholder="Prénom">&nbsp;&nbsp;
+              </div>
+              <div class="d">
+                <input type="email" #email (ngModel)="email" name="email" id="email" class="form-control" placeholder="E-mail">&nbsp;&nbsp;
+                <input type="tel" #telephone (ngModel)="telephone" name="telephone" id="telephone" class="form-control" placeholder="Téléphone">
+              </div>
+              <div class="d">
+                <input type="number" #age (ngModel)="age" name="age" id="age" class="form-control" placeholder="Age">&nbsp;&nbsp;
+                <input type="apprenant_status" #apprenant_status (ngModel)="apprenant_status" name="apprenant_status" id="apprenant_status" class="form-control" placeholder="Status">&nbsp;&nbsp;
+              </div>
+              <div class="d">
+                <input type="text" #login (ngModel)="login" name="login" id="login" class="form-control" placeholder="Login">&nbsp;&nbsp;
+                <input type="password" #password (ngModel)="password" name="password" id="password" class="form-control" placeholder="Mot de passe">
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Ajouter" class="aj">
+              </div>
+            </form>
+          </fieldset>
+          </div> 
+        </div>
+    </mat-tab>
+  </mat-tab-group>
+</app-home>

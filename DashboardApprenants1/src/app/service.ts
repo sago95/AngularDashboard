@@ -61,4 +61,8 @@ export class Service {
   public ListMois(mois:any) {
     return this.http.get(this.API+"/find/month="+mois)
   }
+
+  public verification(login: string, password: string) {
+    return this.http.get(this.API+"/admin/"+login+"&"+password)
+  }
 }

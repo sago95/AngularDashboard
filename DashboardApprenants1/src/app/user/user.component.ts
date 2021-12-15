@@ -39,7 +39,6 @@ export class UserComponent implements OnInit {
       }
     );
   }
-
   register(registerForm: NgForm) {
     this.app.registerApprenant(registerForm.value).subscribe(
       (resp) => {
