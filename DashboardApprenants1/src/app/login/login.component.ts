@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Service } from '../service';
 
 @Component({
@@ -9,21 +10,32 @@ import { Service } from '../service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private service: Service, private route: Router) { }
+  private user:any;
+
+  constructor(private service: Service, private route: Router, private toast: ToastrService) { 
+    this.user = JSON.parse(localStorage.getItem('Admin')!);
+    if(this.user!==null){
+      this.route.navigateByUrl('/user')
+    }
+  }
 
   logForm(form: { login: string; password: string; }){
     this.service.verification(form.login, form.password)
       .subscribe(
         (data:any)=> {
-          if(data!=null){
+          if(data!==null){
             localStorage.setItem('Admin', JSON.stringify(data));
             this.route.navigateByUrl('/user');
           }else {
-            console.log('Veuillez entrer les bons identifiants !')
+            this.ShowError();
           }
         }
       )
 
+  }
+
+  ShowError() {
+    this.toast.error('Veuillez saisir les bons identifiants')
   }
 
   ngOnInit(): void {

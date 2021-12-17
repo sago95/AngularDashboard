@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     FormsModule,
     MatTabsModule,
+    ToastrModule.forRoot()
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
